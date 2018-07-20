@@ -1,8 +1,8 @@
 # Ruby Masterclass 1 - The Ruby class
 
-##Installation instructions
+## Installation instructions
 
-###Prerequisites
+### Prerequisites
 
 You will need the following software installed:
 - Homebrew - a package manager
@@ -10,13 +10,13 @@ You will need the following software installed:
 - Bundler - ruby gem manager
 
 
-####Homebrew
+#### Homebrew
 
 https://brew.sh
 
 Copy and paste the commandline on the above page to install
 
-####Rbenv
+#### Rbenv
 
 - Install using homebrew
     ```
@@ -30,7 +30,7 @@ Copy and paste the commandline on the above page to install
     rbenv install 2.3.1
     ```
 
-####Bundler
+#### Bundler
 
 - Once you've checked this repo out, cd into the directory, and run:
 ```apple js
