@@ -37,3 +37,27 @@ Copy and paste the commandline on the above page to install
 gem install bundler
 bundle install
 ```
+
+## How to run the tests
+
+```apple js
+bundle exec rspec    # this will run all _spec.rb files in the spec directory
+```
+
+
+## Homework
+
+### Add an expiry date to the credit card class.
+
+This should be held as a ruby Date object - it is a class just like everything else in ruby.
+The documentation for the Date class is https://ruby-doc.org/stdlib-2.3.1/libdoc/date/rdoc/Date.html
+
+- quick examples
+    ```
+    my_date = Date.new(2018, 7, 1)   # my_date now contains a ruhy Date object set to 1st, July, 2018
+    td = Date.today                  # td now contains a Ruby Date object set to today
+    ``` 
+
+
+### Check that the expiry date hasn't expired before charging the credit card.
+
