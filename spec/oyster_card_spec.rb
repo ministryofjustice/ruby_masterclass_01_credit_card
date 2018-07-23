@@ -1,32 +1,25 @@
 require 'spec_helper'
-require_relative '../lib/visa_credit_card.rb'
+require_relative '../lib/oyster_card.rb'
 
-describe VisaCreditCard do
+describe OysterCard do
 
 
   describe '.new' do
     it 'instantiates' do
-      vcc = VisaCreditCard.new('Stephen Richards', '123434324')
+      vcc = described_class.new('123434324')
       expect(vcc.balance).to eq 0
-    end
-  end
-
-  describe '#name' do
-    it 'returns the name' do
-      vcc = VisaCreditCard.new('Stephen Richards', '123434324')
-      expect(vcc.name).to eq 'Stephen Richards'
     end
   end
 
   describe '.card_type' do
     it 'is a visa' do
-      expect(VisaCreditCard.card_type).to eq 'VISA'
+      expect(described_class.card_type).to eq 'OYSTERCARD'
     end
   end
 
   describe '#topup' do
     it 'increases the balance' do
-      vcc = VisaCreditCard.new('Stephen Richards', '123434324')
+      vcc = described_class.new('123434324')
       expect(vcc.balance).to eq 0
       vcc.topup(1_000_00)
       expect(vcc.balance).to eq 1_000_00
@@ -36,12 +29,12 @@ describe VisaCreditCard do
   describe '#charge' do
 
     before do
-      @vcc = VisaCreditCard.new('Stephen Richards', '123434324')
+      @vcc = described_class.new('123434324')
       @vcc.topup(1_000_00)
     end
 
     context 'charge less than balance' do
-      it 'adjustst the balance' do
+      it 'adjusts the balance' do
         @vcc.charge(50_00)
         expect(@vcc.balance).to eq (950_00)
       end

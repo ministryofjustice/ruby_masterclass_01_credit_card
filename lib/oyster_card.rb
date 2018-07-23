@@ -1,18 +1,16 @@
-class VisaCreditCard
+class OysterCard
 
-  attr_reader :name, :number, :balance
+  attr_reader :number, :balance
 
-  def initialize(name, number)
-    @name = name
+  def initialize(number)
     @number = number
-
     @balance = 0
   end
 
 
   class << self
     def card_type
-      'VISA'
+      'OYSTERCARD'
     end
   end
 
