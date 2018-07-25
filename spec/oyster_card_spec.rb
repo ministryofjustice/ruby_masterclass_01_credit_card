@@ -3,11 +3,11 @@ require_relative '../lib/oyster_card.rb'
 
 describe OysterCard do
 
+  let(:oyster) { described_class.new('123434324') }
 
   describe '.new' do
     it 'instantiates' do
-      vcc = described_class.new('123434324')
-      expect(vcc.balance).to eq 0
+      expect(oyster.balance).to eq 0
     end
   end
 
@@ -19,39 +19,38 @@ describe OysterCard do
 
   describe '#topup' do
     it 'increases the balance' do
-      vcc = described_class.new('123434324')
-      expect(vcc.balance).to eq 0
-      vcc.topup(1_000_00)
-      expect(vcc.balance).to eq 1_000_00
+      expect(oyster.balance).to eq 0
+      oyster.topup(1_000_00)
+      expect(oyster.balance).to eq 1_000_00
     end
   end
 
   describe '#charge' do
 
     before do
-      @vcc = described_class.new('123434324')
-      @vcc.topup(1_000_00)
+      @oyster = described_class.new('123434324')
+      @oyster.topup(1_000_00)
     end
 
     context 'charge less than balance' do
       it 'adjusts the balance' do
-        @vcc.charge(50_00)
-        expect(@vcc.balance).to eq (950_00)
+        @oyster.charge(50_00)
+        expect(@oyster.balance).to eq (950_00)
       end
 
       it 'returns true' do
-        expect(@vcc.charge(50_00)).to be true
+        expect(@oyster.charge(50_00)).to be true
       end
     end
 
     context 'charge greater than balance' do
       it 'does not change balance' do
-        @vcc.charge(1_050_00)
-        expect(@vcc.balance).to eq 1_000_00
+        @oyster.charge(1_050_00)
+        expect(@oyster.balance).to eq 1_000_00
       end
 
       it 'returns false' do
-        expect(@vcc.charge(1_050_00)).to be false
+        expect(@oyster.charge(1_050_00)).to be false
       end
     end
   end
