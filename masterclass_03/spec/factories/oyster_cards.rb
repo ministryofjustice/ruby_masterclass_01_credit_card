@@ -9,16 +9,14 @@
 #  updated_at :datetime         not null
 #
 
-require 'rails_helper'
+FactoryBot.define do
 
-describe OysterCard do
+  factory :oyster_card do
+    user    { create :user }
+    balance { rand(100..5000) }
 
-  context 'association' do
-    it 'retrieves user' do
-      user = User.create!(name: 'Boris')
-      card = OysterCard.new(user_id: user.id, balance: 30_00)
-
-      expect(card.user.name).to eq 'Boris'
+    trait :zero_balance do
+      balance { 0 }
     end
   end
 end
