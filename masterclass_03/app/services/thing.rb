@@ -4,17 +4,17 @@ class Thing
     @card = card
   end
 
-  def user_id
+  def user_details
     user_name_or_deactivation_message
   end
 
   private
 
   def user_name_or_deactivation_message
-    if @card == 0
-      'No balance on card'
+    if @card.balance == 0
+      "#{@card.user.name} **** NO TRAVEL (ZERO BALANCE) ****"
     else
-      @card.user.id
+      @card.user.name
     end
   end
 
