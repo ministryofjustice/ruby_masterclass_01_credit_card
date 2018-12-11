@@ -1,0 +1,19 @@
+
+
+<h1>List of Oystercards</h1>
+
+<table>
+  <tr>
+    <th>Oystercard No.</th>
+    <th>Holder's name</th>
+    <th>Balance</th>
+  </tr>
+
+  <% @cards.each do |card| %>
+    <tr>
+      <td><%= card.id %></td>
+      <td><%= card.user.name %></td>
+      <td><%= number_to_currency(card.balance/100, unit: "£") %></td>
+    </tr>
+  <% end %>
+</table>
